@@ -1,10 +1,24 @@
+# def outer():
+#     x = "outer"
+
+#     def inner():
+#         nonlocal x
+#         x = "inner"
+#     inner()
+#     print(x)
+
+# outer()  # Output: inner
+
+x = "global"
+
 def outer():
-    x = "outer"
+    x = "enclosing"
 
     def inner():
-        nonlocal x
-        x = "inner"
+        global x
+        x = "local"
+        print(x)
     inner()
-    print(x)
 
-outer()  # Output: inner
+outer()
+print(x)  # Output: local
